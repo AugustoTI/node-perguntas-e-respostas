@@ -5,25 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
     <title>Faça sua pergunta</title>
   </head>
   <body>
     <div class="container mt-4">
-      <h3>Realizar pergunta</h3>
-      <hr />
-      <form action="">
-        <label for="title">Titulo</label>
-        <input type="text" id="title" name="title" class="form-control" />
-        <br />
-        <label for="description">Descreva sua pergunta</label>
-        <textarea
-          name="description"
-          id="description"
-          class="form-control"
-        ></textarea>
-        <br />
-        <button class="btn btn-success">Enviar pergunta</button>
-      </form>
+      <div class="card">
+        <div class="card-header">
+          <h3>Realizar pergunta</h3>
+        </div>
+        <div class="card-body">
+          <form action="">
+            <label for="title">Titulo</label>
+            <input type="text" id="title" name="title" class="form-control" />
+            <br />
+            <label for="description">Descreva sua pergunta</label>
+            <textarea
+              name="description"
+              id="description"
+              class="form-control"
+            ></textarea>
+            <br />
+            <button class="btn btn-success">Enviar pergunta</button>
+          </form>
+        </div>
+      </div>
     </div>
 
     <script
