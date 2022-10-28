@@ -23,7 +23,7 @@ server.use(express.urlencoded({ extended: true }))
 server.use(express.json())
 
 server.get('/', (req, res) => {
-  AskModel.findAll({ raw: true }).then((asks) => {
+  AskModel.findAll({ raw: true, order: [['id', 'DESC']] }).then((asks) => {
     res.render('index', { asks })
   })
 })
