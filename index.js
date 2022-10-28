@@ -4,6 +4,7 @@ const express = require('express')
 const server = express()
 const { resolve } = require('path')
 const mysql = require('./database/mysql')
+const askModel = require('./src/models/Pergunta')
 
 mysql
   .authenticate()
