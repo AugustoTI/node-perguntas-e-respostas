@@ -11,6 +11,10 @@ server.get('/', (req, res) => {
   res.render('index')
 })
 
+server.get('/perguntar', (req, res) => {
+  res.render('perguntar')
+})
+
 server.listen(3000, () => {
   console.log('Servidor rodando na URL: http://localhost:3000')
 })
