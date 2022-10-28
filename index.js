@@ -1,6 +1,18 @@
+require('dotenv').config()
+
 const express = require('express')
 const server = express()
 const { resolve } = require('path')
+const mysql = require('./database/mysql')
+
+mysql
+  .authenticate()
+  .then(() => {
+    console.log('Ocorreu tudo certo')
+  })
+  .catch((error) => {
+    console.log(error)
+  })
 
 server.set('view engine', 'ejs')
 server.set('views', resolve(__dirname, 'src', 'views'))
