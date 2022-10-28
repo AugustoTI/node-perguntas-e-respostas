@@ -5,6 +5,8 @@ const { resolve } = require('path')
 server.set('view engine', 'ejs')
 server.set('views', resolve(__dirname, 'src', 'views'))
 
+server.use(express.static(resolve(__dirname, 'public')))
+
 server.get('/', (req, res) => {
   res.render('index')
 })
