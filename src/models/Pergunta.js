@@ -13,3 +13,5 @@ const Pergunta = mysql.define('perguntas', {
 }) // #3
 
 Pergunta.sync({ force: false }) // #4
+
+module.exports = Pergunta

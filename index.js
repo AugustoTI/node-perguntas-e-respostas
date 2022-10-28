@@ -4,7 +4,7 @@ const express = require('express')
 const server = express()
 const { resolve } = require('path')
 const mysql = require('./database/mysql')
-const askModel = require('./src/models/Pergunta')
+const AskModel = require('./src/models/Pergunta')
 
 mysql
   .authenticate()
@@ -31,8 +31,10 @@ server.get('/perguntar', (req, res) => {
 })
 
 server.post('/perguntar', (req, res) => {
-  console.log(req.body)
-  res.send('Tudo certo')
+  const { title, description } = req.body
+  AskModel.create({ titulo: title, descricao: description }).then(() => {
+    res.status(200).redirect('/')
+  })
 })
 
 server.listen(3000, () => {
