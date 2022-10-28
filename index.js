@@ -23,7 +23,9 @@ server.use(express.urlencoded({ extended: true }))
 server.use(express.json())
 
 server.get('/', (req, res) => {
-  res.render('index')
+  AskModel.findAll({ raw: true }).then((asks) => {
+    res.render('index', { asks })
+  })
 })
 
 server.get('/perguntar', (req, res) => {
@@ -32,7 +34,7 @@ server.get('/perguntar', (req, res) => {
 
 server.post('/perguntar', (req, res) => {
   const { title, description } = req.body
-  AskModel.create({ titulo: title, descricao: description }).then(() => {
+  AskModel.create({ title, description }).then(() => {
     res.status(200).redirect('/')
   })
 })

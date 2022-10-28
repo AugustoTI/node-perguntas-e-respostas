@@ -2,11 +2,11 @@ const { DataTypes } = require('sequelize') // #1
 const mysql = require('../../database/mysql') // #2
 
 const Pergunta = mysql.define('perguntas', {
-  titulo: {
+  title: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  descricao: {
+  description: {
     type: DataTypes.TEXT,
     allowNull: false,
   },
