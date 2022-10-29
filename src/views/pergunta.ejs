@@ -5,10 +5,14 @@
     <%- include('partials/header') %>
 
     <div class="container mt-2">
-      <h1><%= ask.title %></h1>
-      <p><%- ask.description %></p>
+      <h1><%= foundQuestion.title %></h1>
+      <p><%- foundQuestion.description %></p>
       <hr />
-      <form action="/pergunta/<%- ask.id %>" method="POST" class="mb-3">
+      <form
+        action="/pergunta/<%- foundQuestion.id %>"
+        method="POST"
+        class="mb-3"
+      >
         <h3>Responda</h3>
         <textarea
           name="body"

@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize')
-const mysql = require('../../database/mysql')
+const mysql = require('../database/mysql')
 
-const Resposta = mysql.define('respostas', {
+const Answer = mysql.define('respostas', {
   body: {
     type: DataTypes.TEXT,
     allowNull: false,
@@ -12,6 +12,6 @@ const Resposta = mysql.define('respostas', {
   },
 })
 
-Resposta.sync({ force: false })
+Answer.sync({ force: false })
 
-module.exports = Resposta
+module.exports = Answer
