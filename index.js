@@ -5,6 +5,7 @@ const server = express()
 const { resolve } = require('path')
 const mysql = require('./database/mysql')
 const AskModel = require('./src/models/Pergunta')
+const AnswerModel = require('./src/models/Resposta')
 
 mysql
   .authenticate()
@@ -36,6 +37,36 @@ server.post('/perguntar', (req, res) => {
   const { title, description } = req.body
   AskModel.create({ title, description }).then(() => {
     res.status(200).redirect('/')
+  })
+})
+
+server.get('/pergunta/:id', (req, res) => {
+  const { id } = req.params
+  AskModel.findOne({
+    where: {
+      id,
+    },
+    raw: true,
+  }).then((ask) => {
+    if (ask) {
+      AnswerModel.findAll({
+        where: { askId: ask.id },
+        order: [['id', 'DESC']],
+        raw: true,
+      }).then((answers) => {
+        res.render('pergunta', { ask, answers })
+      })
+    } else {
+      res.redirect('/')
+    }
+  })
+})
+
+server.post('/pergunta/:id', (req, res) => {
+  const { id } = req.params
+  const { body } = req.body
+  AnswerModel.create({ body, askId: id }).then(() => {
+    res.redirect(`/pergunta/${id}`)
   })
 })
 

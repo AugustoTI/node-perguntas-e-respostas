@@ -16,7 +16,9 @@
           <h3><%= ask.title %></h3>
           <p><%= ask.description %></p>
           <hr />
-          <button class="btn btn-success">Responder</button>
+          <a href="/pergunta/<%- ask.id %>" class="btn btn-success">
+            Responder
+          </a>
         </li>
         <% }) %>
       </ul>
